@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { bmiCalculation } from './BMICalculator'
 
 class DisplayResult extends Component {
   calculate() {
     var weight= this.props.weight
     var height= this.props.height
+    var method= this.props.method
+
+    return bmiCalculation(weight, height, method);
   }
 
   render() {
