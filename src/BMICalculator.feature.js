@@ -24,22 +24,24 @@ describe('BMI Converter', () => {
 
     it('displays BMI value', async () => {
       await expect(page).toMatch('BMI of 27.46')
+      console.log('log metric')
     })
   })
 
   describe('Imperial method', async () => {
     beforeEach( async () => {
-        await page.select('select[id="method"]', 'imperial')
-        await page.type('input[name="weight"]', '200')
-        await page.type('input[name="height"]', '73')
+      await page.select('select[id="method"]', 'imperial')
+      await page.type('input[name="weight"]', '200')
+      await page.type('input[name="height"]', '73')
     })
 
     it('displays assesment', async () => {   
-        await expect(page).toMatch('You are Overweight')
+      await expect(page).toMatch('You are Overweight')
     })
 
     it('displays BMI value', async () => {   
-        await expect(page).toMatch('BMI of 26.38')
+      await expect(page).toMatch('BMI of 26.38')
+      console.log('log imperial')
     })
   })
 

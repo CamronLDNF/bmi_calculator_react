@@ -1,6 +1,6 @@
 const port = process.env.TEST_SERVER_PORT
-    ? Number(process.env.TEST_SERVER_PORT)
-    : 3000
+  ? Number(process.env.TEST_SERVER_PORT)
+  : 3000
 
 process.env.TEST_SERVER_PORT = port
 
