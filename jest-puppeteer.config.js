@@ -4,19 +4,17 @@ const port = process.env.TEST_SERVER_PORT
 
 process.env.TEST_SERVER_PORT = port
 
-// NOTE: if acceptance test fails, reduce or remove the slowMo setting below
-
 module.exports = {
   launch: {
-      headless: false,
-      slowMo: 30,
-      devtools: true,
-      args: ["--no-sandbox", "--disable-popup-blocking", "--disable-infobars"]
+    headless: false,
+    slowMo: 30,
+    devtools: true,
+    args: ["--no-sandbox", "--disable-popup-blocking", "--disable-infobars"]
   },
   browserContext: 'default',
   server: {
-      command: `PORT=3000 react-scripts start`,
-      port: 3000,
-      launchTimeout: 4000,
+    command: `PORT=3000 react-scripts start`,
+    port: 3000,
+    launchTimeout: 4000,
   },
 }
