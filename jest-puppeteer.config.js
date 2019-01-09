@@ -6,16 +6,33 @@ process.env.TEST_SERVER_PORT = port
 
 module.exports = {
   launch: {
-    headless: false,
-    slowMo: 30,
-    devtools: true,
-    args: ["--no-sandbox", "--disable-popup-blocking", "--disable-infobars"]
+    headless: process.env.CI === 'true',
+    slowMo: 20,
   },
-  browserContext: 'default',
+  browserContext: process.env.INCOGNITO ? 'incognito' : 'default',
   server: {
-    command: `PORT=3000 react-scripts start`,
-    // command: `PORT=3000 BROWSER=none npm run start `, -- use this one if possible
-    port: 3000,
+    command: `PORT=${port} react-scripts start`,
+    port,
     launchTimeout: 4000,
   },
-}
+} 
+
+
+// NOTE: the above module works but Jest gets moody sometimes. 
+// If it fails, try (a) running 'npm run kill:node' then test and (b) try some of the below settings instead.
+
+// module.exports = {
+//   launch: {
+//     headless: false,
+//     slowMo: 30,
+//     devtools: false,
+//     args: ["--no-sandbox", "--disable-popup-blocking", "--disable-infobars"]
+//   },
+//   browserContext: 'default',
+//   server: {
+//     command: `PORT=3000 react-scripts start`,
+//     command: `PORT=3000 BROWSER=none npm run start `,
+//     port: 3000,
+//     launchTimeout: 4000,
+//   },
+// }

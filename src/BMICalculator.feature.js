@@ -1,6 +1,6 @@
 describe('BMI Converter', () => {
   beforeAll(async () => {
-    // await jest.setTimeout(10000); -- try with this if issues
+    await jest.setTimeout(10000);
     await page.goto('http://localhost:3000');
   });
 
@@ -25,7 +25,7 @@ describe('BMI Converter', () => {
 
     it('displays BMI value', async () => {
       await expect(page).toMatch('BMI of 27.46')
-      console.log('log metric')
+      console.log('log: test for metric ran')
     })
   })
 
@@ -42,7 +42,7 @@ describe('BMI Converter', () => {
 
     it('displays BMI value', async () => {   
       await expect(page).toMatch('BMI of 26.38')
-      console.log('log imperial')
+      console.log('log: test for imperial ran')
     })
   })
 
