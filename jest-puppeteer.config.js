@@ -14,6 +14,7 @@ module.exports = {
   browserContext: 'default',
   server: {
     command: `PORT=3000 react-scripts start`,
+    // command: `PORT=3000 BROWSER=none npm run start `, -- use this one if possible
     port: 3000,
     launchTimeout: 4000,
   },

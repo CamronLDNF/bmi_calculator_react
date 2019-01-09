@@ -1,6 +1,6 @@
 describe('BMI Converter', () => {
   beforeAll(async () => {
-    await jest.setTimeout(10000);
+    // await jest.setTimeout(10000); -- try with this if issues
     await page.goto('http://localhost:3000');
   });
 
